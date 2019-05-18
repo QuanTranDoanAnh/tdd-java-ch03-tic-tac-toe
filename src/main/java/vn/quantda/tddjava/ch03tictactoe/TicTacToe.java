@@ -7,10 +7,13 @@ public class TicTacToe {
 			{'\0', '\0', '\0'}
 	};
 	
+	private char lastPlayer = '\0';
+	
 	public void play(int x, int y) {
 		checkXAxis(x);
 		checkYAxis(y);
 		setBox(x, y);
+		lastPlayer = nextPlayer();
 	}
 
 	private void setBox(int x, int y) {
@@ -31,6 +34,13 @@ public class TicTacToe {
 		if (x < 1 || x > 3) {
 			throw new RuntimeException("X is outside board");
 		}
+	}
+
+	public char nextPlayer() {
+		if (lastPlayer == 'X') {
+			return 'O';
+		}
+		return 'X';
 	}
 
 }

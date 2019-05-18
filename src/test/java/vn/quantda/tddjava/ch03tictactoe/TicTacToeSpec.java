@@ -1,5 +1,7 @@
 package vn.quantda.tddjava.ch03tictactoe;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,5 +35,16 @@ public class TicTacToeSpec {
 		ticTacToe.play(2, 1);
 		exception.expect(RuntimeException.class);
 		ticTacToe.play(2, 1);
+	}
+	
+	@Test
+	public void givenFirstTurnWhenNextPlayerThenX() {
+		assertEquals('X', ticTacToe.nextPlayer());
+	}
+	
+	@Test
+	public void givenLastTurnWasXWhenNextPlayerThenO() {
+		ticTacToe.play(1, 1);
+		assertEquals('O', ticTacToe.nextPlayer());
 	}
 } 
