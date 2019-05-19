@@ -11,6 +11,7 @@ plugins {
     id 'java'
 	id 'idea'
 	id 'eclipse'
+	id 'jacoco'
 }
 
 version '1.0'
